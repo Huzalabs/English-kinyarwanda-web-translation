@@ -6,6 +6,15 @@ from accuracy import *
 
 st.title("GOV Website Contents Translation")
 
+col1, col2 = st.columns(2)
+
+with col1:
+   st.image("https://www.developmentaid.org/files/organizationLogos/huzalabs-435178.jpg")
+
+with col2:
+   st.image("/Users/kayarn/Desktop/Sources/NLP_Projects/RW-EN-Gov-Web-Translation/images/Rwanda Gov.png")
+
+st.image("/Users/kayarn/Desktop/Sources/NLP_Projects/RW-EN-Gov-Web-Translation/images/GIZ_HUZALABS_FAIRFORWARD.png")
 
 # with st.sidebar:
 #     st.header("Choose an option")
