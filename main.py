@@ -64,15 +64,21 @@ translate_button, download_button, a ,b  = st.columns(4)
 
 with translate_button:
     translate_button = st.button("Translate Dataset")
- 
-if translate_button:
-    st.text_area("", key="translate_area", value=st.session_state['text_area'], disabled=True, height=20)
+   
        
+if translate_button:
+    paragraphs = st.session_state['text_area']
+    print(paragraphs)
+    texts = []
+    for text in paragraphs:
+        trans_text = translate_row(paragraphs, target_lang='rw', source_lang='en')
+        texts.append(trans_text)
+
+    #st.text_area("", key="translate_area", disabled=True, height=20)
+
 
 with download_button:
     download_button = st.button("Download Dataset")
-
-
 
 
 
