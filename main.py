@@ -60,12 +60,6 @@ with st.container():
 
     
     
-
-
-
-
-
-
 translate_button, download_button, a ,b  = st.columns(4)
 
 with translate_button:
