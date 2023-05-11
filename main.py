@@ -67,69 +67,15 @@ with translate_button:
    
        
 if translate_button:
-    paragraphs = st.session_state['text_area']
-    print(paragraphs)
+    paragraphs = st.session_state['text_area'].split('\n')
     texts = []
     for text in paragraphs:
-        trans_text = translate_row(paragraphs, target_lang='rw', source_lang='en')
+        trans_text = translate_row(text, target_lang='rw', source_lang='en')
         texts.append(trans_text)
 
-    #st.text_area("", key="translate_area", disabled=True, height=20)
+    #print(texts)
+    st.text_area("Translation", value='\n'.join(texts), disabled=True, height=20)
 
 
 with download_button:
     download_button = st.button("Download Dataset")
-
-
-
-
-# def process_upload(df):
-#     with st.spinner("Translating ......."):
-#         df['translated_text']=translate_dataframe(df, target_lang='rw', source_lang='en')
-#         df['Back_translated_text']=back_translate_dataframe(df, target_lang='en', source_lang='rw')
-
-#     return df
-
-# def calc_accuracy(df):
-#     # Iterate over the DataFrame rows and compare the paragraphs in each row
-#     for i, row in df.iterrows():
-#         similarity = compare_paragraphs(row['content'], row['Back_translated_text'])
-#         df.at[i, 'Condidence level'] = similarity
-#     return df[['content','translated_text','Condidence level']]
-
-
-# # Print the updated dataframe
-# if file_upload:
-#     if st.button('Translate'):
-#         #Save the csv file
-#         with open('data/dataset.csv', 'wb+') as file:
-#             file.write(file_upload.read())
-        
-#         df = pd.read_csv('data/dataset.csv')
-#         df = process_upload(df)
-
-#         st.header("Displaying the confidence level of the translation")
-#         df = calc_accuracy(df)
-
-#         st.dataframe(df)
-
-#         #Save the output
-#         df.to_csv('output.csv')
-
-
-#         def convert_df(df):
-#             # IMPORTANT: Cache the conversion to prevent computation on every rerun
-#             return df.to_csv().encode('utf-8')
-
-#         csv = convert_df(df)
-
-#         st.download_button(label="Download a CSV",file_name='output.csv',data=csv, mime='text/csv')
-
-
-
-
-
-        
-
-
-
