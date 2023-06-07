@@ -19,7 +19,7 @@ api.add_middleware(
     allow_headers=["*"],
 )
 
-ngrok_tunnel = ngrok.connect(3000)
+#ngrok_tunnel = ngrok.connect(3000)
 
 # Gov
 @api.post('/translate')
@@ -42,12 +42,12 @@ async def translate(request: Request, payload: dict):
         "Access-Control-Allow-Origin": "*",
         "Access-Control-Allow-Methods": "POST",
         "Access-Control-Allow-Headers": "Content-Type",
-        "Location": f"{ngrok_tunnel.public_url}/translate"
+        #"Location": f"{ngrok_tunnel.public_url}/translate"
     }
     return Response(content=response, headers=headers)
 
 
-if __name__ == "__main__":
-    print('Please use the following link to access your app:', ngrok_tunnel.public_url)
-    nest_asyncio.apply()
-    uvicorn.run(api, port=3000)
+# if __name__ == "__main__":
+#     print('Please use the following link to access your app:', ngrok_tunnel.public_url)
+#     nest_asyncio.apply()
+#     uvicorn.run(api, port=3000)
